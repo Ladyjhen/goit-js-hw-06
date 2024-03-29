@@ -1,25 +1,21 @@
-// Get reference to the counter element and the span that displays the counter value
-const valueSpan = document.getElementById('value');
 
-// Initialize counter value
-let counterValue = 0;
+let initialValue = 0;
 
-// Function to update the interface with the current counter value
-function updateCounterDisplay() {
-  valueSpan.textContent = counterValue;
+let value = document.getElementById("value");
+
+value.innerText = initialValue;
+
+let incBtn = document.querySelector('[data-action="increment"]');
+let decBtn = document.querySelector('[data-action="decrement"]');
+
+incBtn.onclick = function() {
+initialValue += 1;
+value.innerText = initialValue
+};
+
+decBtn.onclick = function() {
+    if (initialValue > 0) {
+    initialValue -= 1;
+    value.innerText = initialValue 
 }
-
-// Add event listener for the decrement button
-document.getElementById('decrementBtn').addEventListener('click', function() {
-  counterValue--;
-  updateCounterDisplay();
-});
-
-// Add event listener for the increment button
-document.getElementById('incrementBtn').addEventListener('click', function() {
-  counterValue++;
-  updateCounterDisplay();
-});
-
-// Update the interface with the initial counter value
-updateCounterDisplay();
+};

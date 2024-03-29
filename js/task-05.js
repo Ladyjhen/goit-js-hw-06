@@ -1,9 +1,12 @@
-const nameInput = document.getElementById('name-input');
-const nameOutput = document.getElementById('name-output');
+let input = document.querySelector('#name-input');
+let output = document.querySelector('#name-output')
 
-nameInput.addEventListener('input', function() {
-  const newName = nameInput.value.trim(); // Trim whitespace from the input
-  
-  // Check if newName is empty, if so, display "Anonymous", otherwise, display newName
-  nameOutput.textContent = newName === '' ? 'Anonymous' : newName;
-});
+function manageInput(event) {
+let inputValue = event.currentTarget.value.trim();
+if (inputValue) {output.textContent = inputValue
+} else { 
+    output.textContent = 'Anonymous';
+}
+};
+
+input.addEventListener('input', manageInput);
